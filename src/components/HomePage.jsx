@@ -13,8 +13,8 @@ export default function HomePage() {
     <>
       <Hero />
       <IntroSection />
-      <CampaignsSection />
       <ExpertiseSection />
+      <CampaignsSection />
       <Marquee />
       <VisionSection />
       <CultureSection />

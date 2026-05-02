@@ -43,8 +43,8 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Contact</h4>
             <a href="tel:9842466030">📞 98424 66030</a>
-            <a href="https://wa.me/919344383879">💬 93443 83879</a>
-            <a href="mailto:jkrindustries24@gmail.com">✉️ jkrindustries24@gmail.com</a>
+            <a href="https://wa.me/918838615904">💬 88386 15904</a>
+            <a href="mailto:Jkrindustries.in@gmail.com">✉️ Jkrindustries.in@gmail.com</a>
           </div>
         </div>
       </div>

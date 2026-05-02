@@ -81,10 +81,11 @@ const DIVISIONS = [
     tagline: 'The Industrial Backbone',
     desc: 'The parent company managing multiple specialized divisions, delivering end-to-end industrial services with precision, quality, and innovation across every project we undertake.',
     offerings: [
-      'Multi-division industrial operations',
-      'Project management & consultation',
-      'Quality assurance & compliance',
-      'Custom fabrication solutions',
+      'PEB structure',
+      'Ornamental canopy structure',
+      'UPVC roof sheds',
+      'Spiral staircase',
+      'Unique metal sculptures',
     ],
     img: '/assets/images/industries/ind_1.jpg',
     reelImages: [
@@ -102,10 +103,9 @@ const DIVISIONS = [
     tagline: 'Energy-Efficient Solutions',
     desc: 'High-performance UPVC doors and windows engineered for superior thermal insulation, soundproofing, and weather resistance in modern environments.',
     offerings: [
-      'Multi-chambered profiles',
-      'Energy efficient glazing',
-      'Sound insulation technology',
-      'Low maintenance & durable',
+      'Open & sliding windows',
+      'French windows & doors',
+      'Casement windows',
     ],
     img: '/assets/images/upvc/upvc_1.jpg',
     reelImages: [
@@ -125,10 +125,8 @@ const DIVISIONS = [
     tagline: 'Industrial Strength Security',
     desc: 'Robust Galvanized Iron (GI) door and window systems designed for maximum security and durability in industrial and commercial environments.',
     offerings: [
-      'Heavy-duty GI frames',
-      'Fire-resistant design',
-      'Anti-corrosive coating',
-      'High-security locking systems',
+      'Open windows',
+      'Customisable doors',
     ],
     img: '/assets/images/gi/gi_1.jpg',
     reelImages: [
@@ -146,10 +144,9 @@ const DIVISIONS = [
     tagline: 'Premium Architectural Systems',
     desc: 'Elite architectural aluminium systems featuring ultra-slim sightlines and advanced thermal break technology for seamless modern aesthetics.',
     offerings: [
-      'Slim profile design',
-      'Thermal break technology',
-      'Premium powder-coated finishes',
-      'Seamless architectural integration',
+      'Open doors & windows',
+      'Sliding doors & windows',
+      'Casement windows',
     ],
     img: '/assets/images/aluminium/alu_1.jpg',
     reelImages: [
@@ -169,10 +166,8 @@ const DIVISIONS = [
     tagline: 'Precision Artistry',
     desc: 'Precision CNC laser cutting services for intricate patterns, facade designs, signage, and custom metal art — delivering unmatched accuracy on every cut.',
     offerings: [
-      'CNC laser cutting',
-      'Architectural facade designs',
-      'Custom signage & lettering',
-      'Decorative metal art & panels',
+      'Metal / GI laser cuts',
+      'Facade designs',
     ],
     img: '/assets/images/laser-cutting/laser_1.jpg',
     reelImages: [
@@ -190,10 +185,9 @@ const DIVISIONS = [
     tagline: 'Form Meets Finish',
     desc: 'Complete sheet metal fabrication from bending and welding to finishing with durable, weather-resistant powder coating for products that last a lifetime.',
     offerings: [
-      'Sheet metal bending & forming',
-      'Precision welding & joining',
-      'Electrostatic powder coating',
-      'Surface treatment & finishing',
+      'EB power panels',
+      'Metal furniture',
+      'Commercial racks',
     ],
     img: '/assets/images/sheet-metal/661ca50b7575d115452ff0ecf40804bc.jpg',
     reelImages: [
@@ -211,10 +205,9 @@ const DIVISIONS = [
     tagline: 'Industrial Supply Chain',
     desc: 'Supplying high-quality industrial materials including steel, pipes, rods, construction hardware, and raw materials for fabrication projects of all scales.',
     offerings: [
-      'Steel & metal supplies',
-      'Pipes, rods & structural materials',
-      'Construction hardware',
-      'Bulk & project-based orders',
+      'Shrimp auto feeder',
+      'Aerator systems',
+      'SS pipes & accessories',
     ],
     img: '/assets/images/trader/stainless-steel-pipe-316.webp',
     reelImages: [
@@ -241,144 +234,162 @@ export default function ProductPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    // Track all critical images: background + division images + reel images
+    const criticalImages = [...BG_IMAGES];
+    DIVISIONS.forEach(d => {
+      if (d.img) criticalImages.push(d.img);
+      if (d.reelImages) criticalImages.push(...d.reelImages);
+    });
+
     let loadedCount = 0;
     let isMounted = true;
-    BG_IMAGES.forEach((src) => {
+    const totalToLoad = criticalImages.length;
+
+    const safetyTimeout = setTimeout(() => {
+      if (isMounted && !imagesLoaded) {
+        setImagesLoaded(true);
+      }
+    }, 5000);
+
+    criticalImages.forEach((src) => {
       const img = new Image();
       img.src = src;
       const handleLoad = () => {
         if (!isMounted) return;
         loadedCount++;
-        if (loadedCount === BG_IMAGES.length) setImagesLoaded(true);
+        if (loadedCount >= totalToLoad) {
+          clearTimeout(safetyTimeout);
+          setImagesLoaded(true);
+        }
       };
       img.onload = handleLoad;
       img.onerror = handleLoad;
     });
 
-    if (!imagesLoaded) return () => { isMounted = false; };
+    if (!imagesLoaded) return () => { isMounted = false; clearTimeout(safetyTimeout); };
 
-    const bgLayers = pageRef.current?.querySelectorAll('.cinematic-bg-layer');
-    if (!bgLayers || bgLayers.length === 0) return;
+    const ctx = gsap.context(() => {
+      const bgLayers = pageRef.current?.querySelectorAll('.cinematic-bg-layer');
+      if (bgLayers && bgLayers.length > 0) {
+        gsap.set(bgLayers, { opacity: 0, scale: 1 });
+        gsap.set(bgLayers[0], { opacity: 1 });
 
-    gsap.set(bgLayers, { opacity: 0, scale: 1 });
-    gsap.set(bgLayers[0], { opacity: 1 });
-
-    const mainTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: pageRef.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1.5,
-      }
-    });
-
-    mainTl.to(bgLayers[0], { opacity: 0, duration: 1 }, 0.15)
-          .to(bgLayers[1], { opacity: 1, duration: 1 }, 0.15);
-
-    mainTl.to(bgLayers[1], { opacity: 0, duration: 1 }, 0.5)
-          .to(bgLayers[2], { opacity: 1, duration: 1 }, 0.5);
-
-    mainTl.to(bgLayers[2], { opacity: 0, duration: 1 }, 0.85)
-          .to(bgLayers[3], { opacity: 1, duration: 1 }, 0.85);
-
-    bgLayers.forEach((layer) => {
-      gsap.to(layer, {
-        scale: 1.05,
-        yPercent: 5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pageRef.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-        }
-      });
-    });
-
-    const tlHero = gsap.timeline({ delay: 0.35 });
-    const heroContent = pageRef.current?.querySelector('.product-hero-content');
-    if (heroContent) {
-      const breadcrumb = heroContent.querySelector('.ourwork-breadcrumb');
-      const title = heroContent.querySelector('.product-hero-title');
-      const subtitle = heroContent.querySelector('.product-hero-subtitle');
-      const divider = heroContent.querySelector('.product-hero-divider');
-      const scrollHint = pageRef.current?.querySelector('.product-hero-scroll');
-
-      if (breadcrumb) tlHero.fromTo(breadcrumb, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' });
-      if (title) tlHero.fromTo(title, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.35');
-      if (subtitle) tlHero.fromTo(subtitle, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.4');
-      if (divider) tlHero.fromTo(divider, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
-      if (scrollHint) tlHero.fromTo(scrollHint, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.15');
-    }
-
-    const cards = pageRef.current?.querySelectorAll('.product-division');
-    cards?.forEach((card) => {
-      gsap.fromTo(card,
-        { y: 80, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'power4.out',
+        const mainTl = gsap.timeline({
           scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
+            trigger: pageRef.current,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.5,
+          }
+        });
 
-      // Micro Parallax for images inside cards
-      const img = card.querySelector('.product-division-img-wrapper img');
-      if (img) {
-        gsap.fromTo(img,
-          { y: -50, scale: 1.15 },
-          {
-            y: 50,
-            scale: 1,
+        mainTl.to(bgLayers[0], { opacity: 0, duration: 1 }, 0.15)
+              .to(bgLayers[1], { opacity: 1, duration: 1 }, 0.15);
+        mainTl.to(bgLayers[1], { opacity: 0, duration: 1 }, 0.5)
+              .to(bgLayers[2], { opacity: 1, duration: 1 }, 0.5);
+        mainTl.to(bgLayers[2], { opacity: 0, duration: 1 }, 0.85)
+              .to(bgLayers[3], { opacity: 1, duration: 1 }, 0.85);
+
+        bgLayers.forEach((layer) => {
+          gsap.to(layer, {
+            scale: 1.05,
+            yPercent: 5,
             ease: 'none',
             scrollTrigger: {
-              trigger: card,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true
+              trigger: pageRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
             }
+          });
+        });
+      }
+
+      const tlHero = gsap.timeline({ delay: 0.35 });
+      const heroContent = pageRef.current?.querySelector('.product-hero-content');
+      if (heroContent) {
+        const breadcrumb = heroContent.querySelector('.ourwork-breadcrumb');
+        const title = heroContent.querySelector('.product-hero-title');
+        const subtitle = heroContent.querySelector('.product-hero-subtitle');
+        const divider = heroContent.querySelector('.product-hero-divider');
+        const scrollHint = pageRef.current?.querySelector('.product-hero-scroll');
+
+        if (breadcrumb) tlHero.fromTo(breadcrumb, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' });
+        if (title) tlHero.fromTo(title, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.35');
+        if (subtitle) tlHero.fromTo(subtitle, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.4');
+        if (divider) tlHero.fromTo(divider, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+        if (scrollHint) tlHero.fromTo(scrollHint, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.15');
+      }
+
+      const cards = pageRef.current?.querySelectorAll('.product-division');
+      cards?.forEach((card) => {
+        gsap.fromTo(card,
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
           }
         );
-      }
-    });
 
-    const tabs = pageRef.current?.querySelectorAll('.product-nav-item');
-    tabs?.forEach((tab, i) => {
-      gsap.fromTo(tab,
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power2.out',
-          delay: 0.3 + i * 0.08,
-        }
-      );
-    });
-
-    DIVISIONS.forEach((div, i) => {
-      ScrollTrigger.create({
-        trigger: `#${div.id}`,
-        start: 'top 40%',
-        end: 'bottom 40%',
-        onToggle: (self) => {
-          if (self.isActive && tabs?.[i]) {
-            tabs.forEach(t => t.classList.remove('active'));
-            tabs[i].classList.add('active');
-          }
+        const img = card.querySelector('.product-division-img-wrapper img');
+        if (img) {
+          gsap.fromTo(img,
+            { y: -50, scale: 1.15 },
+            {
+              y: 50,
+              scale: 1,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+              }
+            }
+          );
         }
       });
-    });
+
+      const tabs = pageRef.current?.querySelectorAll('.product-nav-item');
+      tabs?.forEach((tab, i) => {
+        gsap.fromTo(tab,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power2.out',
+            delay: 0.3 + i * 0.08,
+          }
+        );
+      });
+
+      DIVISIONS.forEach((div, i) => {
+        ScrollTrigger.create({
+          trigger: `#${div.id}`,
+          start: 'top 40%',
+          end: 'bottom 40%',
+          onToggle: (self) => {
+            if (self.isActive && tabs?.[i]) {
+              tabs.forEach(t => t.classList.remove('active'));
+              tabs[i].classList.add('active');
+            }
+          }
+        });
+      });
+    }, pageRef);
 
     return () => {
       isMounted = false;
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      clearTimeout(safetyTimeout);
+      ctx.revert();
     };
   }, [imagesLoaded, location.hash]);
 

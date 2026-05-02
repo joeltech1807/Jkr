@@ -9,7 +9,7 @@ const SERVICES = [
     num: '01',
     title: 'JKR Industries',
     desc: 'The parent company managing multiple specialized divisions, delivering end-to-end industrial services with precision and quality.',
-    img: '/images/jkr_industries.png',
+    img: '/images/ind.jpeg',
     link: '/products#jkr-industries',
   },
   {
@@ -44,7 +44,7 @@ const SERVICES = [
     num: '06',
     title: 'JKR Sheet Metal & Powder Coating',
     desc: 'Complete sheet metal fabrication from bending and welding to finishing with durable, weather-resistant powder coating for lasting quality.',
-    img: '/images/sheet_metal.png',
+    img: '/images/pow.jpeg',
     link: '/products#jkr-sheet-metal',
   },
   {

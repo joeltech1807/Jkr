@@ -7,20 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SECTIONS = [
   {
-    id: 'laser-cutting',
-    title: 'JKR Laser Cutting & Facade Designs',
-    subtitle: 'Precision CNC Laser Cutting & Custom Metal Art',
-    type: 'carousel',
-    speed: 'fast',
-    images: [
-      '/images/ourwork/laser/laser_1.jpeg',
-      '/images/ourwork/laser/laser_2.jpeg',
-      '/images/ourwork/laser/laser_3.jpeg',
-      '/images/ourwork/laser/laser_4.jpeg',
-      '/images/ourwork/laser/laser_5.jpeg',
-    ],
-  },
-  {
     id: 'jkr-industries',
     title: 'JKR Industries',
     subtitle: 'Industrial & Commercial Shed Fabrication',
@@ -42,6 +28,20 @@ const SECTIONS = [
       '/images/ourwork/shed/shed_14.jpeg',
       '/images/ourwork/shed/shed_15.jpeg',
       '/images/ourwork/shed/shed_16.jpeg',
+    ],
+  },
+  {
+    id: 'laser-cutting',
+    title: 'JKR Laser Cutting & Facade Designs',
+    subtitle: 'Precision CNC Laser Cutting & Custom Metal Art',
+    type: 'carousel',
+    speed: 'fast',
+    images: [
+      '/images/ourwork/laser/laser_1.jpeg',
+      '/images/ourwork/laser/laser_2.jpeg',
+      '/images/ourwork/laser/laser_3.jpeg',
+      '/images/ourwork/laser/laser_4.jpeg',
+      '/images/ourwork/laser/laser_5.jpeg',
     ],
   },
   {
@@ -156,88 +156,102 @@ export default function OurWorkPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Track all critical images: background + category images
+    const criticalImages = [...BG_IMAGES];
+    SECTIONS.forEach(s => {
+      if (s.images) criticalImages.push(...s.images);
+    });
+
     let loadedCount = 0;
     let isMounted = true;
-    BG_IMAGES.forEach((src) => {
+    const totalToLoad = criticalImages.length;
+
+    // Safety timeout: stop loading after 5 seconds regardless
+    const safetyTimeout = setTimeout(() => {
+      if (isMounted && !imagesLoaded) {
+        setImagesLoaded(true);
+      }
+    }, 5000);
+
+    criticalImages.forEach((src) => {
       const img = new Image();
       img.src = src;
       const handleLoad = () => {
         if (!isMounted) return;
         loadedCount++;
-        if (loadedCount === BG_IMAGES.length) setImagesLoaded(true);
+        if (loadedCount >= totalToLoad) {
+          clearTimeout(safetyTimeout);
+          setImagesLoaded(true);
+        }
       };
       img.onload = handleLoad;
       img.onerror = handleLoad;
     });
 
-    if (!imagesLoaded) return () => { isMounted = false; };
+    if (!imagesLoaded) return () => { isMounted = false; clearTimeout(safetyTimeout); };
 
-    const bgLayers = pageRef.current?.querySelectorAll('.cinematic-bg-layer');
-    if (!bgLayers || bgLayers.length === 0) return;
+    // GSAP initialization
+    const ctx = gsap.context(() => {
+      const bgLayers = pageRef.current?.querySelectorAll('.cinematic-bg-layer');
+      if (bgLayers && bgLayers.length > 0) {
+        gsap.set(bgLayers, { opacity: 0, scale: 1 });
+        gsap.set(bgLayers[0], { opacity: 1 });
 
-    gsap.set(bgLayers, { opacity: 0, scale: 1 });
-    gsap.set(bgLayers[0], { opacity: 1 });
-
-    const mainTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: pageRef.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1.5,
-      }
-    });
-
-    mainTl.to(bgLayers[0], { opacity: 0, duration: 1 }, 0.15)
-      .to(bgLayers[1], { opacity: 1, duration: 1 }, 0.15);
-    mainTl.to(bgLayers[1], { opacity: 0, duration: 1 }, 0.5)
-      .to(bgLayers[2], { opacity: 1, duration: 1 }, 0.5);
-    mainTl.to(bgLayers[2], { opacity: 0, duration: 1 }, 0.85)
-      .to(bgLayers[3], { opacity: 1, duration: 1 }, 0.85);
-
-    bgLayers.forEach((layer) => {
-      gsap.to(layer, {
-        scale: 1.05,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pageRef.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-        }
-      });
-      gsap.to(layer, {
-        yPercent: 5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pageRef.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-        }
-      });
-    });
-
-    const sections = pageRef.current?.querySelectorAll('.ourwork-hero, .ourwork-category, .ourwork-cta');
-    sections?.forEach((section) => {
-      gsap.fromTo(section,
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'power4.out',
+        const mainTl = gsap.timeline({
           scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    });
+            trigger: pageRef.current,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.5,
+          }
+        });
+
+        mainTl.to(bgLayers[0], { opacity: 0, duration: 1 }, 0.15)
+          .to(bgLayers[1], { opacity: 1, duration: 1 }, 0.15);
+        mainTl.to(bgLayers[1], { opacity: 0, duration: 1 }, 0.5)
+          .to(bgLayers[2], { opacity: 1, duration: 1 }, 0.5);
+        mainTl.to(bgLayers[2], { opacity: 0, duration: 1 }, 0.85)
+          .to(bgLayers[3], { opacity: 1, duration: 1 }, 0.85);
+
+        bgLayers.forEach((layer) => {
+          gsap.to(layer, {
+            scale: 1.05,
+            yPercent: 5,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: pageRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
+            }
+          });
+        });
+      }
+
+      const sections = pageRef.current?.querySelectorAll('.ourwork-hero, .ourwork-category, .ourwork-cta');
+      sections?.forEach((section) => {
+        gsap.fromTo(section,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    }, pageRef);
 
     return () => {
       isMounted = false;
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      clearTimeout(safetyTimeout);
+      ctx.revert();
     };
   }, [imagesLoaded]);
 
