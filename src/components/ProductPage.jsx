@@ -453,7 +453,7 @@ export default function ProductPage() {
           </div>
           <h1 className="product-hero-title">Our Products</h1>
           <p className="product-hero-subtitle">
-            Five specialized divisions, one commitment to excellence — explore our comprehensive range of industrial products and services.
+            Seven specialized divisions, one commitment to excellence — explore our comprehensive range of industrial products and services.
           </p>
           <div className="product-hero-divider" />
         </div>
