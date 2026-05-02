@@ -125,14 +125,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 9999 !important; /* Ensure it's above everything */
-  
-  /* DEFINITIVE GLASS FIX FOR PRODUCTION */
-  background: rgba(255, 255, 255, 0.7) !important; 
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  /* Reliable glass effect */
+  background: rgba(255, 255, 255, 0.7); /* Safe default */
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   transition: 
     color 0.3s ease, 
     background-color 0.3s ease,
@@ -143,7 +141,7 @@ button {
 /* 🖤 Dark Mode (Over Dark Backgrounds) */
 .navbar.dark {
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.5) !important; /* Stronger dark glass */
+  background: rgba(0, 0, 0, 0.45); /* Explicit dark translucent bg */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -166,7 +164,7 @@ button {
 /* 🤍 Light Mode (Over Light Backgrounds) */
 .navbar.light {
   color: #111111;
-  background: rgba(255, 255, 255, 0.8) !important; /* Stronger light glass */
+  background: rgba(255, 255, 255, 0.75); /* Explicit light translucent bg */
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
