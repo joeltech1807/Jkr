@@ -62,6 +62,21 @@ body {
 [data-theme="dark"] {
   background-color: var(--color-black);
   color: var(--color-white);
+  position: relative;
+}
+
+[data-theme="dark"] > * {
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="dark"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 [data-theme="light"] {
@@ -143,11 +158,10 @@ button {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  /* Strong Glass Effect */
-  background: rgba(255, 255, 255, 0.3); /* Fallback */
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.82) !important;
+  backdrop-filter: blur(50px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
   transition: 
     color 0.3s ease, 
     background-color 0.3s ease,
@@ -706,8 +720,8 @@ button {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at center, transparent, rgba(0,0,0,0.5)),
-    linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.6));
+    radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.85) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.7));
   z-index: -2;
   pointer-events: none;
 }
@@ -1883,7 +1897,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.5) 100%);
+  background: radial-gradient(circle, transparent 15%, rgba(0, 0, 0, 0.9) 100%);
   pointer-events: none;
 }
 
@@ -1891,7 +1905,14 @@ button {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.8) 100%),
+    radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.8) 100%),
+    rgba(0, 0, 0, 0.3);
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.015; /* 1.5% noise */
+  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
@@ -2503,10 +2524,10 @@ button {
   z-index: -3;
   background:
     linear-gradient(180deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.55) 40%,
-      rgba(0, 0, 0, 0.65) 70%,
-      rgba(0, 0, 0, 0.85) 100%
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.65) 40%,
+      rgba(0, 0, 0, 0.75) 70%,
+      rgba(0, 0, 0, 0.95) 100%
     );
 }
 
@@ -2515,9 +2536,9 @@ button {
   z-index: -2;
   background:
     linear-gradient(135deg,
-      rgba(243, 174, 13, 0.06) 0%,
+      rgba(243, 174, 13, 0.1) 0%,
       transparent 50%,
-      rgba(243, 174, 13, 0.04) 100%
+      rgba(243, 174, 13, 0.08) 100%
     );
 }
 
@@ -2525,9 +2546,9 @@ button {
 .product-hero-overlay--vignette {
   z-index: -1;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 50%,
-      transparent 40%,
-      rgba(0, 0, 0, 0.45) 100%
+    radial-gradient(ellipse 80% 70% at 50% 50%,
+      transparent 15%,
+      rgba(0, 0, 0, 0.85) 100%
     );
 }
 
@@ -2537,9 +2558,9 @@ button {
   background: linear-gradient(
     105deg,
     transparent 35%,
-    rgba(243, 174, 13, 0.04) 45%,
-    rgba(255, 255, 255, 0.03) 50%,
-    rgba(243, 174, 13, 0.04) 55%,
+    rgba(243, 174, 13, 0.08) 45%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(243, 174, 13, 0.08) 55%,
     transparent 65%
   );
   background-size: 250% 100%;
@@ -2903,9 +2924,9 @@ button {
   pointer-events: none;
   background: 
     /* Left Light Absorption (Readability) */
-    linear-gradient(to right, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.3) 35%, transparent 70%),
+    linear-gradient(to right, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.5) 35%, transparent 70%),
     /* Industrial Atmospheric Tint */
-    radial-gradient(circle at 70% 30%, rgba(243, 174, 13, 0.04), transparent 70%);
+    radial-gradient(circle at 70% 30%, rgba(243, 174, 13, 0.08), transparent 70%);
   mix-blend-mode: multiply;
 }
 
@@ -2918,9 +2939,9 @@ button {
   pointer-events: none;
   background: 
     /* Right Side Highlight Bloom */
-    linear-gradient(to left, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+    linear-gradient(to left, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
     /* Corner Light Hit */
-    radial-gradient(circle at 100% 50%, rgba(243, 174, 13, 0.12), transparent 55%);
+    radial-gradient(circle at 100% 50%, rgba(243, 174, 13, 0.15), transparent 55%);
   mix-blend-mode: screen;
 }
 
@@ -2936,14 +2957,16 @@ button {
 
 .product-division--alt .product-division-img-wrapper::before {
   background: 
-    linear-gradient(to left, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.3) 35%, transparent 70%),
-    radial-gradient(circle at 30% 30%, rgba(243, 174, 13, 0.04), transparent 70%);
+    linear-gradient(to left, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 40%, transparent 80%),
+    radial-gradient(circle at 30% 30%, rgba(243, 174, 13, 0.12), transparent 70%);
+  mix-blend-mode: multiply;
 }
 
 .product-division--alt .product-division-img-wrapper::after {
   background: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 0% 50%, rgba(243, 174, 13, 0.12), transparent 55%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 0% 50%, rgba(243, 174, 13, 0.15), transparent 55%);
+  mix-blend-mode: screen;
 }
 
 .product-division-img-wrapper:hover {
@@ -3626,10 +3649,10 @@ main {
   height: 240px; /* Fixed height for stability */
   margin: 0 35px;
   padding: 30px 40px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(15px) saturate(180%);
-  -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: 
     0 15px 35px rgba(0, 0, 0, 0.2),
