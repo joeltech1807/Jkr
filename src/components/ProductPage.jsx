@@ -495,8 +495,8 @@ export default function ProductPage() {
         alignItems: 'center', 
         justifyContent: 'center' 
       }}>
-        <div style={{ color: '#fff', fontFamily: 'var(--font-heading)', letterSpacing: '4px', fontSize: '1.2rem' }}>
-          LOADING CINEMATIC EXPERIENCE...
+        <div style={{ color: '#fff', fontFamily: 'var(--font-heading)', letterSpacing: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>
+          Loading JKR Experience
         </div>
       </div>
     );
