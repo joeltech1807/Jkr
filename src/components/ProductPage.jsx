@@ -74,6 +74,13 @@ function VerticalReel({ images, onClick }) {
 function GalleryPopup({ isOpen, images, initialIndex, onClose }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const touchStartRef = useRef(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -87,7 +94,6 @@ function GalleryPopup({ isOpen, images, initialIndex, onClose }) {
   const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
   const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
-  // Swipe Support
   const handleTouchStart = (e) => (touchStartRef.current = e.touches[0].clientX);
   const handleTouchEnd = (e) => {
     const touchEnd = e.changedTouches[0].clientX;
@@ -108,24 +114,36 @@ function GalleryPopup({ isOpen, images, initialIndex, onClose }) {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <button className="gallery-close-btn" onClick={onClose}>&times;</button>
+        <button className="gallery-close-btn" onClick={onClose} aria-label="Close gallery">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
         
-        <img 
-          src={images[currentIndex]} 
-          alt={`Gallery Item ${currentIndex + 1}`} 
-          className="gallery-main-image"
-          key={currentIndex}
-        />
+        <div className="gallery-image-container" onClick={onClose}>
+          <img 
+            src={images[currentIndex]} 
+            alt={`Gallery Item ${currentIndex + 1}`} 
+            className="gallery-main-image"
+            key={currentIndex}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
 
-        <button className="gallery-nav-btn gallery-nav-btn--prev" onClick={prevImage}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button className="gallery-nav-btn gallery-nav-btn--next" onClick={nextImage}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+        {!isMobile && images.length > 1 && (
+          <>
+            <button className="gallery-nav-btn gallery-nav-btn--prev" onClick={prevImage} aria-label="Previous image">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button className="gallery-nav-btn gallery-nav-btn--next" onClick={nextImage} aria-label="Next image">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </>
+        )}
 
         <div className="gallery-info">
-          {currentIndex + 1} / {images.length}
+          <span>{currentIndex + 1}</span> / {images.length}
         </div>
       </div>
     </div>
@@ -597,6 +615,14 @@ export default function ProductPage() {
                 ) : (
                   <img src={div.img} alt={div.title} loading="lazy" />
                 )}
+                
+                <div className="product-division-hover-hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                  </svg>
+                  <span>Click to view images</span>
+                </div>
+
                 <div className="product-division-num-badge">{div.num}</div>
               </div>
             </div>
