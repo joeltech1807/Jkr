@@ -1667,9 +1667,31 @@ button {
     min-height: 100vh;
   }
 
+  .hero-subtitle {
+    font-size: 0.82rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 24px !important;
+  }
+
   .hero-title {
-    font-size: 2.8rem;
-    line-height: 1.1;
+    font-size: 3.2rem !important;
+    line-height: 1 !important;
+    letter-spacing: 2px !important;
+  }
+
+  .hero-micro-subtext {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-top: 16px !important;
+    max-width: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem !important;
+    margin-top: 40px !important;
+    letter-spacing: 1px !important;
   }
 
   .hero-cards-wrapper {
@@ -1735,8 +1757,12 @@ button {
   }
 
   .hero-title-wrapper {
-    height: 90px !important;
-    margin-bottom: 20px;
+    height: 125px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .hero-progress-container {
+    margin: 24px auto !important;
   }
 
   /* Expertise */
@@ -1822,16 +1848,25 @@ button {
 /* 📲 Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-subtitle {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+    font-size: 0.8rem !important;
+    letter-spacing: 1.5px !important;
   }
 
   .hero-title {
-    font-size: 2rem !important;
+    font-size: 2.8rem !important;
+  }
+
+  .hero-micro-subtext {
+    font-size: 0.9rem !important;
+    max-width: 260px !important;
   }
 
   .hero-title-wrapper {
-    height: 100px !important;
+    height: 110px !important;
+  }
+
+  .hero-tagline {
+    font-size: 1rem !important;
   }
 
   .section-title {
