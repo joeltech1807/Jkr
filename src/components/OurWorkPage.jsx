@@ -258,9 +258,10 @@ export default function OurWorkPage() {
   if (!imagesLoaded) {
     return (
       <div data-theme="dark" style={{ height: '100vh', width: '100%', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ color: '#fff', fontFamily: 'var(--font-heading)', letterSpacing: '4px', fontSize: '1.2rem' }}>
-          LOADING CINEMATIC EXPERIENCE...
+        <div style={{ color: '#fff', fontFamily: 'var(--font-heading)', letterSpacing: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>
+          Loading JKR Experience
         </div>
+
       </div>
     );
   }
