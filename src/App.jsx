@@ -13,20 +13,51 @@ function TitleUpdater() {
   const location = useLocation();
 
   useEffect(() => {
-    const baseTitle = 'JKR Industries | Fabrication & Laser Cutting in Nagapattinam';
-    switch (location.pathname) {
-      case '/':
-        document.title = baseTitle;
-        break;
-      case '/our-work':
-        document.title = `Our Work | ${baseTitle}`;
-        break;
-      case '/products':
-        document.title = `Products | ${baseTitle}`;
-        break;
-      default:
-        document.title = baseTitle;
+    const pages = {
+      '/': {
+        title: 'JKR Industries | Fabrication & Laser Cutting in Nagapattinam',
+        meta: 'JKR Industries offers laser cutting, sheet metal fabrication, powder coating, and industrial solutions in Nagapattinam. Quality, precision, and durability.'
+      },
+      '/products': {
+        title: 'Our Products & Services | JKR Industries Nagapattinam',
+        meta: 'Explore JKR Industries services including laser cutting, fabrication, powder coating, and industrial supply in Nagapattinam.'
+      },
+      '/our-work': {
+        title: 'Our Work | Fabrication Projects by JKR Industries',
+        meta: 'View completed industrial fabrication, laser cutting, and sheet metal projects by JKR Industries in Nagapattinam.'
+      }
+    };
+
+    const sections = {
+      '#about-section': {
+        title: 'About JKR Industries | Industrial Experts in Nagapattinam',
+        meta: 'Learn about JKR Industries, a trusted fabrication and industrial solutions provider in Nagapattinam with years of excellence.'
+      },
+      '#contact': {
+        title: 'Contact JKR Industries | Nagapattinam',
+        meta: 'Contact JKR Industries for fabrication, laser cutting, and industrial services in Nagapattinam. Call or WhatsApp us today.'
+      }
+    };
+
+    let data = pages[location.pathname] || pages['/'];
+    
+    // Check for section-specific titles on Home page
+    if (location.pathname === '/' && sections[location.hash]) {
+      data = sections[location.hash];
     }
+
+    // Update Title
+    document.title = data.title;
+
+    // Update Meta Description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', data.meta);
+
   }, [location]);
 
   return null;
