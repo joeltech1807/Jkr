@@ -127,11 +127,11 @@ button {
 }
 
 .loader-logo {
-  font-family: var(--font-heading);
-  font-size: 4rem;
-  letter-spacing: 4px;
-  color: var(--color-black);
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
 }
+
 
 .loader-bar-container {
   width: 200px;

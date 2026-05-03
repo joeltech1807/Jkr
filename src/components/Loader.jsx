@@ -40,7 +40,8 @@ export default function Loader({ onComplete }) {
 
   return (
     <div ref={overlayRef} className="loader-overlay">
-      <div ref={logoRef} className="loader-logo">JKR</div>
+      <img ref={logoRef} src="/assets/images/loader-logo.jpeg" alt="JKR Logo" className="loader-logo" />
+
       <div className="loader-bar-container">
         <div ref={barRef} className="loader-bar" />
       </div>
