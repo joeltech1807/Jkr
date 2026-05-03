@@ -1672,16 +1672,32 @@ button {
     line-height: 1.1;
   }
 
-  .hero-cards {
-    flex-wrap: wrap;
+  .hero-cards-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding: 30px 0;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+  }
+
+  .hero-cards-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  .hero-cards-track {
+    animation: none !important;
+    width: max-content !important; /* Keep items in a row */
+    display: flex;
     gap: 16px;
-    justify-content: center;
-    margin-top: 40px;
+    padding: 0 32px; /* Side padding for swipe offset */
   }
 
   .hero-card {
-    width: calc(50% - 8px);
-    height: 180px;
+    width: 80vw !important;
+    height: 300px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
   }
 
   /* Common Section Padding */
@@ -1696,26 +1712,14 @@ button {
     padding: 60px 20px;
   }
 
-  /* Hero */
+  /* Hero Section Mobile Overrides */
   .hero {
-    padding: 110px 20px 40px;
+    padding: 100px 0 60px; /* Reduced vertical padding */
   }
 
-  .hero-title {
-    font-size: 2.8rem;
-    line-height: 1.1;
-  }
-
-  .hero-cards {
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 30px;
-  }
-
-  .hero-card {
-    width: calc(50% - 10px);
-    height: 160px;
+  .hero-title-wrapper {
+    height: 90px !important;
+    margin-bottom: 20px;
   }
 
   /* Expertise */
@@ -1811,11 +1815,6 @@ button {
 
   .hero-title-wrapper {
     height: 100px !important;
-  }
-
-  .hero-card {
-    width: 100%;
-    height: 150px;
   }
 
   .section-title {
