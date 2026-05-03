@@ -158,10 +158,10 @@ button {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.82) !important;
-  backdrop-filter: blur(50px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(10, 10, 10, 0.4) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   transition: 
     color 0.3s ease, 
     background-color 0.3s ease,
@@ -172,8 +172,10 @@ button {
 /* 🖤 Dark Mode (Over Dark Backgrounds) */
 .navbar.dark {
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.55) !important; /* Explicit semi-transparent black */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar.dark .nav-logo {
@@ -195,8 +197,10 @@ button {
 /* 🤍 Light Mode (Over Light Backgrounds) */
 .navbar.light {
   color: #111111;
-  background: rgba(255, 255, 255, 0.7) !important; /* Explicit semi-transparent white */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar.light .nav-logo {
