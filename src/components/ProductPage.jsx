@@ -55,17 +55,78 @@ function CreatorBox() {
   );
 }
 
-function VerticalReel({ images }) {
+function VerticalReel({ images, onClick }) {
   // Use exactly 2x duplication as requested: [1 2 3 4 1 2 3 4]
   const duplicated = [...images, ...images];
   return (
-    <div className="vertical-reel-container">
+    <div className="vertical-reel-container" onClick={onClick}>
       <div className="vertical-reel-track">
         {duplicated.map((src, i) => (
           <div key={i} className="vertical-reel-item">
             <img src={src} alt={`Laser Cutting Showcase ${i % images.length + 1}`} loading="lazy" />
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function GalleryPopup({ isOpen, images, initialIndex, onClose }) {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const touchStartRef = useRef(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      setCurrentIndex(initialIndex);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen, initialIndex]);
+
+  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  // Swipe Support
+  const handleTouchStart = (e) => (touchStartRef.current = e.touches[0].clientX);
+  const handleTouchEnd = (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStartRef.current - touchEnd;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextImage();
+      else prevImage();
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className={`gallery-popup-overlay ${isOpen ? 'gallery-popup-overlay--open' : ''}`} onClick={onClose}>
+      <div 
+        className="gallery-popup-content" 
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <button className="gallery-close-btn" onClick={onClose}>&times;</button>
+        
+        <img 
+          src={images[currentIndex]} 
+          alt={`Gallery Item ${currentIndex + 1}`} 
+          className="gallery-main-image"
+          key={currentIndex}
+        />
+
+        <button className="gallery-nav-btn gallery-nav-btn--prev" onClick={prevImage}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button className="gallery-nav-btn gallery-nav-btn--next" onClick={nextImage}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div className="gallery-info">
+          {currentIndex + 1} / {images.length}
+        </div>
       </div>
     </div>
   );
@@ -230,6 +291,11 @@ const DIVISIONS = [
 export default function ProductPage() {
   const pageRef = useRef(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [gallery, setGallery] = useState({ isOpen: false, images: [], index: 0 });
+
+  const openGallery = (images, index = 0) => {
+    setGallery({ isOpen: true, images, index });
+  };
 
   const BG_IMAGES = [
     '/assets/demob1/1.jpeg',
@@ -521,10 +587,13 @@ export default function ProductPage() {
           id={div.id}
         >
           <div className="product-division-inner">
-            <div className="product-division-media">
+            <div 
+              className="product-division-media" 
+              onClick={() => openGallery(div.reelImages || [div.img], 0)}
+            >
               <div className={`product-division-img-wrapper ${div.reelImages ? 'product-division-img-wrapper--full' : ''}`} style={{ background: div.gradient }}>
                 {div.reelImages ? (
-                  <VerticalReel images={div.reelImages} />
+                  <VerticalReel images={div.reelImages} onClick={() => openGallery(div.reelImages, 0)} />
                 ) : (
                   <img src={div.img} alt={div.title} loading="lazy" />
                 )}
@@ -575,6 +644,13 @@ export default function ProductPage() {
           </Link>
         </div>
       </section>
+
+      <GalleryPopup 
+        isOpen={gallery.isOpen}
+        images={gallery.images}
+        initialIndex={gallery.index}
+        onClose={() => setGallery({ ...gallery, isOpen: false })}
+      />
     </div>
   );
 }
