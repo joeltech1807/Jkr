@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './index.css';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
@@ -8,6 +8,29 @@ import HomePage from './components/HomePage';
 import OurWorkPage from './components/OurWorkPage';
 import ProductPage from './components/ProductPage';
 import Footer from './components/Footer';
+
+function TitleUpdater() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const baseTitle = 'JKR Industries | Fabrication & Laser Cutting in Nagapattinam';
+    switch (location.pathname) {
+      case '/':
+        document.title = baseTitle;
+        break;
+      case '/our-work':
+        document.title = `Our Work | ${baseTitle}`;
+        break;
+      case '/products':
+        document.title = `Products | ${baseTitle}`;
+        break;
+      default:
+        document.title = baseTitle;
+    }
+  }, [location]);
+
+  return null;
+}
 
 export default function App() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -58,6 +81,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <TitleUpdater />
       {!loaded && <Loader onComplete={handleLoaderComplete} />}
       <ScrollToAnchor />
       <Navbar />
