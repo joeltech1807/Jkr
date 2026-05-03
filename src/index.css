@@ -42,12 +42,7 @@ html {
   padding-bottom: 0 !important;
   width: 100%;
 }
-#root {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -57,6 +52,12 @@ body {
   color: var(--color-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 [data-theme="dark"] {
@@ -525,17 +526,20 @@ button {
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3.5rem;
-    letter-spacing: 2px;
+    font-size: 2.8rem !important; /* Smaller for iPhone 12 Pro */
+    letter-spacing: 1px !important;
+    white-space: normal !important;
+    text-align: center;
   }
   
   .hero-micro-subtext {
-    font-size: 0.9rem;
-    padding: 0 20px;
+    font-size: 0.85rem !important;
+    padding: 0 15px;
+    max-width: 320px;
   }
 
   .hero-title-wrapper {
-    height: 140px;
+    height: 120px !important;
   }
 
   .hero-progress-container {
@@ -1680,6 +1684,7 @@ button {
     height: 180px;
   }
 
+  /* Common Section Padding */
   #about-section,
   .expertise-wrapper,
   .expertise-section,
@@ -1688,57 +1693,94 @@ button {
   .vision-section,
   .culture-section,
   .contact-section {
-    padding: 80px 24px;
+    padding: 60px 20px;
   }
 
+  /* Hero */
+  .hero {
+    padding: 110px 20px 40px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .hero-cards {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .hero-card {
+    width: calc(50% - 10px);
+    height: 160px;
+  }
+
+  /* Expertise */
   .expertise-card {
     flex-direction: column;
     height: auto;
     min-height: auto;
     display: flex;
     overflow: hidden;
+    margin-bottom: 24px;
   }
 
   .expertise-card-content {
-    padding: 40px 24px;
+    padding: 32px 20px;
     order: 1;
   }
 
   .expertise-card-image {
-    height: 250px;
+    height: 220px;
     order: 2;
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .expertise-card-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
+  /* Vision */
   .vision-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.2;
-    margin-bottom: 24px;
   }
 
   .vision-card {
-    padding: 80px 24px;
-    border-radius: 32px;
+    padding: 40px 20px;
+    border-radius: 24px;
+  }
+
+  /* Contact */
+  .contact-box {
+    padding: 40px 20px;
+    border-radius: 24px;
+    gap: 40px;
   }
 
   .contact-content-grid {
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
   }
 
+  .contact-heading {
+    font-size: 2.5rem;
+  }
+
+  /* Grids */
   .campaigns-grid, .reasons-grid, .works-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
+  /* Footer */
   .footer-top {
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
     text-align: center;
     align-items: center;
   }
@@ -1746,50 +1788,55 @@ button {
   .footer-columns {
     width: 100%;
     justify-content: center;
-    gap: 40px;
+    gap: 32px;
+    flex-wrap: wrap;
   }
 
   .footer-column {
     align-items: center;
+    min-width: 200px;
   }
 }
 
 /* 📲 Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.2rem;
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
   }
 
-  .section-title {
-    font-size: 2.2rem;
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-title-wrapper {
+    height: 100px !important;
   }
 
   .hero-card {
     width: 100%;
-    height: 160px;
+    height: 150px;
   }
 
-  .nav-logo {
-    font-size: 1.1rem;
+  .section-title {
+    font-size: 2rem;
   }
 
-  .expertise-card-title {
-    font-size: 1.6rem;
+  .nav-logo-img {
+    height: 36px;
   }
-}
 
-@media (max-width: 480px) {
-  .hero-title {
+  .contact-heading {
     font-size: 2.2rem;
   }
 
-  .hero-title-wrapper {
-    height: 44px;
+  .culture-box {
+    padding: 60px 20px;
+    border-radius: 24px;
   }
 
-  .hero-card {
-    width: 120px;
-    height: 160px;
+  .culture-text {
+    font-size: 1.6rem;
   }
 }
 
