@@ -78,7 +78,7 @@ export default function Navbar() {
   }, [location]);
 
     const handleLogoClick = (e) => {
-      if (location.pathname === '/' || location.pathname === '') {
+      if (location.pathname === '/jkr/' || location.pathname === '/jkr' || location.pathname === '') {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -86,14 +86,14 @@ export default function Navbar() {
 
     return (
       <nav className={`navbar ${theme}`} id="navbar">
-        <Link to="/#hero" className="nav-logo" onClick={handleLogoClick}>JKR INDUSTRIES</Link>
+        <Link to="/jkr/#hero" className="nav-logo" onClick={handleLogoClick}>JKR INDUSTRIES</Link>
       <div className={`nav-links ${mobileOpen ? 'mobile-open' : ''}`}>
-        <Link to="/#hero" className={location.pathname === '/' && !location.hash ? 'active' : ''} onClick={handleLogoClick}>Home</Link>
-        <Link to="/#about-section" className={location.hash === '#about-section' ? 'active' : ''}>About Us</Link>
-        <Link to="/#services" className={location.hash === '#services' ? 'active' : ''}>Our Services</Link>
-        <Link to="/products#products-hero" className={location.pathname === '/products' ? 'active' : ''}>Products</Link>
-        <Link to="/our-work#our-work-hero" className={location.pathname === '/our-work' ? 'active' : ''}>Our Work</Link>
-        <Link to="/#contact" className="nav-cta">Contact Us</Link>
+        <Link to="/jkr/#hero" className={(location.pathname === '/jkr/' || location.pathname === '/jkr') && !location.hash ? 'active' : ''} onClick={handleLogoClick}>Home</Link>
+        <Link to="/jkr/#about-section" className={location.hash === '#about-section' ? 'active' : ''}>About Us</Link>
+        <Link to="/jkr/#services" className={location.hash === '#services' ? 'active' : ''}>Our Services</Link>
+        <Link to="/jkr/products#products-hero" className={location.pathname === '/jkr/products' ? 'active' : ''}>Products</Link>
+        <Link to="/jkr/our-work#our-work-hero" className={location.pathname === '/jkr/our-work' ? 'active' : ''}>Our Work</Link>
+        <Link to="/jkr/#contact" className="nav-cta">Contact Us</Link>
       </div>
       <div
         className={`mobile-menu-btn ${mobileOpen ? 'open' : ''}`}

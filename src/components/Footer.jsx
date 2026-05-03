@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <Link to="/#hero" className="footer-logo" onClick={handleLogoClick}>JKR INDUSTRIES</Link>
+          <Link to="/jkr/#hero" className="footer-logo" onClick={handleLogoClick}>JKR INDUSTRIES</Link>
           <p className="footer-brand-desc">
             Engineering excellence and fabrication solutions — delivering precision,
             durability, and innovation across multiple industrial services.
@@ -23,22 +23,22 @@ export default function Footer() {
         <div className="footer-columns">
           <div className="footer-column">
             <h4>Quick Links</h4>
-            <Link to="/">Home</Link>
-            <Link to="/#about-section">About Us</Link>
-            <Link to="/#services">Our Services</Link>
-            <Link to="/products">All Products</Link>
-            <Link to="/our-work">Our Work</Link>
-            <Link to="/#contact">Contact Us</Link>
+            <Link to="/jkr/">Home</Link>
+            <Link to="/jkr/#about-section">About Us</Link>
+            <Link to="/jkr/#services">Our Services</Link>
+            <Link to="/jkr/products">All Products</Link>
+            <Link to="/jkr/our-work">Our Work</Link>
+            <Link to="/jkr/#contact">Contact Us</Link>
           </div>
           <div className="footer-column">
             <h4>Our Services</h4>
-            <Link to="/products#jkr-industries">JKR Industries</Link>
-            <Link to="/products#upvc-doors-windows">UPVC Doors & Windows</Link>
-            <Link to="/products#gi-doors-windows">GI Doors & Windows</Link>
-            <Link to="/products#aluminium-doors-windows">System Aluminium</Link>
-            <Link to="/products#jkr-laser-cutting">Laser Cutting & Facades</Link>
-            <Link to="/products#jkr-sheet-metal">Sheet Metal & Coating</Link>
-            <Link to="/products#jkr-trader">JKR Trader</Link>
+            <Link to="/jkr/products#jkr-industries">JKR Industries</Link>
+            <Link to="/jkr/products#upvc-doors-windows">UPVC Doors & Windows</Link>
+            <Link to="/jkr/products#gi-doors-windows">GI Doors & Windows</Link>
+            <Link to="/jkr/products#aluminium-doors-windows">System Aluminium</Link>
+            <Link to="/jkr/products#jkr-laser-cutting">Laser Cutting & Facades</Link>
+            <Link to="/jkr/products#jkr-sheet-metal">Sheet Metal & Coating</Link>
+            <Link to="/jkr/products#jkr-trader">JKR Trader</Link>
           </div>
           <div className="footer-column">
             <h4>Contact</h4>

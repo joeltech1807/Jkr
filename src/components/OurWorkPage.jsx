@@ -12,22 +12,22 @@ const SECTIONS = [
     subtitle: 'Industrial & Commercial Shed Fabrication',
     type: 'carousel',
     images: [
-      '/images/ourwork/shed/shed_1.jpg',
-      '/images/ourwork/shed/shed_2.jpeg',
-      '/images/ourwork/shed/shed_3.jpeg',
-      '/images/ourwork/shed/shed_4.jpeg',
-      '/images/ourwork/shed/shed_5.jpeg',
-      '/images/ourwork/shed/shed_6.jpeg',
-      '/images/ourwork/shed/shed_7.jpeg',
-      '/images/ourwork/shed/shed_8.jpeg',
-      '/images/ourwork/shed/shed_9.jpeg',
-      '/images/ourwork/shed/shed_10.jpeg',
-      '/images/ourwork/shed/shed_11.jpeg',
-      '/images/ourwork/shed/shed_12.jpeg',
-      '/images/ourwork/shed/shed_13.jpeg',
-      '/images/ourwork/shed/shed_14.jpeg',
-      '/images/ourwork/shed/shed_15.jpeg',
-      '/images/ourwork/shed/shed_16.jpeg',
+      '/jkr/images/ourwork/shed/shed_1.jpg',
+      '/jkr/images/ourwork/shed/shed_2.jpeg',
+      '/jkr/images/ourwork/shed/shed_3.jpeg',
+      '/jkr/images/ourwork/shed/shed_4.jpeg',
+      '/jkr/images/ourwork/shed/shed_5.jpeg',
+      '/jkr/images/ourwork/shed/shed_6.jpeg',
+      '/jkr/images/ourwork/shed/shed_7.jpeg',
+      '/jkr/images/ourwork/shed/shed_8.jpeg',
+      '/jkr/images/ourwork/shed/shed_9.jpeg',
+      '/jkr/images/ourwork/shed/shed_10.jpeg',
+      '/jkr/images/ourwork/shed/shed_11.jpeg',
+      '/jkr/images/ourwork/shed/shed_12.jpeg',
+      '/jkr/images/ourwork/shed/shed_13.jpeg',
+      '/jkr/images/ourwork/shed/shed_14.jpeg',
+      '/jkr/images/ourwork/shed/shed_15.jpeg',
+      '/jkr/images/ourwork/shed/shed_16.jpeg',
     ],
   },
   {
@@ -37,11 +37,11 @@ const SECTIONS = [
     type: 'carousel',
     speed: 'fast',
     images: [
-      '/images/ourwork/laser/laser_1.jpeg',
-      '/images/ourwork/laser/laser_2.jpeg',
-      '/images/ourwork/laser/laser_3.jpeg',
-      '/images/ourwork/laser/laser_4.jpeg',
-      '/images/ourwork/laser/laser_5.jpeg',
+      '/jkr/images/ourwork/laser/laser_1.jpeg',
+      '/jkr/images/ourwork/laser/laser_2.jpeg',
+      '/jkr/images/ourwork/laser/laser_3.jpeg',
+      '/jkr/images/ourwork/laser/laser_4.jpeg',
+      '/jkr/images/ourwork/laser/laser_5.jpeg',
     ],
   },
   {
@@ -50,11 +50,11 @@ const SECTIONS = [
     subtitle: 'Precision Fabrication & High-Quality Finishes',
     type: 'carousel',
     images: [
-      '/assets/images/jkr-powder/powder_1.jpeg',
-      '/assets/images/jkr-powder/powder_2.jpeg',
-      '/assets/images/jkr-powder/powder_3.jpeg',
-      '/assets/images/jkr-powder/powder_4.jpeg',
-      '/assets/images/jkr-powder/powder_5.jpeg',
+      '/jkr/assets/images/jkr-powder/powder_1.jpeg',
+      '/jkr/assets/images/jkr-powder/powder_2.jpeg',
+      '/jkr/assets/images/jkr-powder/powder_3.jpeg',
+      '/jkr/assets/images/jkr-powder/powder_4.jpeg',
+      '/jkr/assets/images/jkr-powder/powder_5.jpeg',
     ],
   },
 ];
@@ -148,10 +148,10 @@ export default function OurWorkPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const BG_IMAGES = [
-    '/assets/demob2/1.jpeg',
-    '/assets/demob2/2.jpeg',
-    '/assets/demob2/3.jpeg',
-    '/assets/demob2/4.jpeg',
+    '/jkr/assets/demob2/1.jpeg',
+    '/jkr/assets/demob2/2.jpeg',
+    '/jkr/assets/demob2/3.jpeg',
+    '/jkr/assets/demob2/4.jpeg',
   ];
 
   useEffect(() => {
@@ -293,7 +293,7 @@ export default function OurWorkPage() {
 
         <div className="ourwork-hero-content">
           <div className="ourwork-breadcrumb">
-            <Link to="/">Home</Link>
+            <Link to="/jkr/">Home</Link>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>

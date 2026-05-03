@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -97,12 +98,12 @@ export default function VisionSection() {
           and modern door & window installations — JKR Industries delivers complete
           industrial solutions with unmatched quality.
         </p>
-        <a href="/#about-section" className="vision-link">
+        <Link to="/jkr/#about-section" className="vision-link">
           About JKR Industries
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </a>
+        </Link>
       </div>
     </section>
   );

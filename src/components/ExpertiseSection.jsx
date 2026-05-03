@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,50 +10,50 @@ const SERVICES = [
     num: '01',
     title: 'JKR Industries',
     desc: 'The parent company managing multiple specialized divisions, delivering end-to-end industrial services with precision and quality.',
-    img: '/images/ind.jpeg',
-    link: '/products#jkr-industries',
+    img: '/jkr/images/ind.jpeg',
+    link: '/jkr/products#jkr-industries',
   },
   {
     num: '02',
     title: 'UPVC Doors & Windows',
     desc: 'High-performance UPVC solutions for superior insulation, weather resistance, and soundproofing in modern living spaces.',
-    img: '/images/doors_windows.png',
-    link: '/products#upvc-doors-windows',
+    img: '/jkr/assets/images/upvcser.jpeg',
+    link: '/jkr/products#upvc-doors-windows',
   },
   {
     num: '03',
     title: 'GI Doors & Windows',
     desc: 'Robust Galvanized Iron doors and windows designed for industrial-grade security, fire resistance, and exceptional longevity.',
-    img: '/images/doors_windows.png',
-    link: '/products#gi-doors-windows',
+    img: '/jkr/assets/images/giser.jpeg',
+    link: '/jkr/products#gi-doors-windows',
   },
   {
     num: '04',
     title: 'System Aluminium Doors & Windows',
     desc: 'Premium architectural aluminium systems featuring slim profiles, thermal breaks, and seamless modern functionality.',
-    img: '/images/doors_windows.png',
-    link: '/products#aluminium-doors-windows',
+    img: '/jkr/assets/images/sysalu.jpeg',
+    link: '/jkr/products#aluminium-doors-windows',
   },
   {
     num: '05',
     title: 'JKR Laser Cutting & Facade Designs',
     desc: 'Precision CNC laser cutting services for intricate patterns, facade designs, signage, and custom metal art with unmatched accuracy.',
-    img: '/images/laser_cutting.png',
-    link: '/products#jkr-laser-cutting',
+    img: '/jkr/assets/images/lasercut.jpeg',
+    link: '/jkr/products#jkr-laser-cutting',
   },
   {
     num: '06',
     title: 'JKR Sheet Metal & Powder Coating',
     desc: 'Complete sheet metal fabrication from bending and welding to finishing with durable, weather-resistant powder coating for lasting quality.',
-    img: '/images/pow.jpeg',
-    link: '/products#jkr-sheet-metal',
+    img: '/jkr/images/pow.jpeg',
+    link: '/jkr/products#jkr-sheet-metal',
   },
   {
     num: '07',
     title: 'JKR Trader',
     desc: 'Supplying high-quality industrial materials including steel, pipes, rods, construction hardware, and raw materials for fabrication projects.',
-    img: '/images/trader.png',
-    link: '/products#jkr-trader',
+    img: '/jkr/assets/images/traderser.jpeg',
+    link: '/jkr/products#jkr-trader',
   },
 ];
 
@@ -133,12 +134,12 @@ export default function ExpertiseSection() {
                     </ul>
                   )}
                 </div>
-                <a href={svc.link} className="expertise-card-link">
+                <Link to={svc.link} className="expertise-card-link">
                   Learn More
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
               <div className="expertise-card-image">
                 <img src={svc.img} alt={svc.title} loading="lazy" />

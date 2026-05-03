@@ -14,14 +14,16 @@ export default function App() {
   const [imagesReady, setImagesReady] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+  const base = import.meta.env.BASE_URL;
+
   useEffect(() => {
     // Preload critical global assets (logos, common icons, hero first view)
     const criticalAssets = [
-      '/logo.jpeg',
-      '/images/trader.png',
-      '/images/laser_cutting.png',
-      '/images/sheet_metal.png',
-      '/images/doors_windows.png',
+      `${base}logo.jpeg`,
+      `${base}images/trader.png`,
+      `${base}images/laser_cutting.png`,
+      `${base}images/sheet_metal.png`,
+      `${base}images/doors_windows.png`,
     ];
     
     let loadedCount = 0;
@@ -61,9 +63,12 @@ export default function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/our-work" element={<OurWorkPage />} />
-          <Route path="/products" element={<ProductPage />} />
+          <Route path="/jkr" element={<HomePage />} />
+          <Route path="/jkr/" element={<HomePage />} />
+          <Route path="/jkr/our-work" element={<OurWorkPage />} />
+          <Route path="/jkr/products" element={<ProductPage />} />
+          {/* Fallback to home */}
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
       <Footer />

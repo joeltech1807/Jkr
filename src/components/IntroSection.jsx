@@ -65,19 +65,19 @@ export default function IntroSection() {
         and modern door & window solutions, all under one roof.
       </p>
       <div className="intro-actions fade-up">
-        <a href="#services" className="intro-cta">
+        <Link to="/jkr/#services" className="intro-cta">
           Explore Our Services
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </a>
-        <Link to="/our-work" className="intro-cta">
+        </Link>
+        <Link to="/jkr/our-work" className="intro-cta">
           Explore Our Work
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>
-        <Link to="/products" className="intro-cta">
+        <Link to="/jkr/products" className="intro-cta">
           Explore Our Products
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />

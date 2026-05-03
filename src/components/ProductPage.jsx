@@ -87,12 +87,13 @@ const DIVISIONS = [
       'Spiral staircase',
       'Unique metal sculptures',
     ],
-    img: '/assets/images/industries/ind_1.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10l3.13-2.74a2 2 0 0 1 2.65 0L12 10l4.22-2.74a2 2 0 0 1 2.65 0L22 10z"/><path d="m2 10 10-8 10 8"/></svg>,
+    img: '/jkr/assets/images/industries/ind_1.jpg',
     reelImages: [
-      '/assets/images/industries/ind_1.jpg',
-      '/assets/images/industries/ind_2.jpg',
-      '/assets/images/industries/ind_3.jpg',
-      '/assets/images/industries/ind_4.jpg',
+      '/jkr/assets/images/industries/ind_1.jpg',
+      '/jkr/assets/images/industries/ind_2.jpg',
+      '/jkr/assets/images/industries/ind_3.jpg',
+      '/jkr/assets/images/industries/ind_4.jpg',
     ],
     gradient: 'linear-gradient(135deg, #1a1608 0%, #2a2210 100%)',
   },
@@ -107,14 +108,15 @@ const DIVISIONS = [
       'French windows & doors',
       'Casement windows',
     ],
-    img: '/assets/images/upvc/upvc_1.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg>,
+    img: '/jkr/assets/images/upvc/upvc_1.jpg',
     reelImages: [
-      '/assets/images/upvc/upvc_1.jpg',
-      '/assets/images/upvc/upvc_2.jpg',
-      '/assets/images/upvc/upvc_3.jpg',
-      '/assets/images/upvc/upvc_4.jpg',
-      '/assets/images/upvc/upvc_5.jpg',
-      '/assets/images/upvc/upvc_6.jpg',
+      '/jkr/assets/images/upvc/upvc_1.jpg',
+      '/jkr/assets/images/upvc/upvc_2.jpg',
+      '/jkr/assets/images/upvc/upvc_3.jpg',
+      '/jkr/assets/images/upvc/upvc_4.jpg',
+      '/jkr/assets/images/upvc/upvc_5.jpg',
+      '/jkr/assets/images/upvc/upvc_6.jpg',
     ],
     gradient: 'linear-gradient(135deg, #0a1a1a 0%, #102020 100%)',
   },
@@ -128,12 +130,13 @@ const DIVISIONS = [
       'Open windows',
       'Customisable doors',
     ],
-    img: '/assets/images/gi/gi_1.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+    img: '/jkr/assets/images/gi/gi_1.jpg',
     reelImages: [
-      '/assets/images/gi/gi_1.jpg',
-      '/assets/images/gi/gi_2.jpg',
-      '/assets/images/gi/gi_3.png',
-      '/assets/images/gi/gi_4.webp',
+      '/jkr/assets/images/gi/gi_1.jpg',
+      '/jkr/assets/images/gi/gi_2.jpg',
+      '/jkr/assets/images/gi/gi_3.png',
+      '/jkr/assets/images/gi/gi_4.webp',
     ],
     gradient: 'linear-gradient(135deg, #121212 0%, #1c1c1c 100%)',
   },
@@ -148,14 +151,15 @@ const DIVISIONS = [
       'Sliding doors & windows',
       'Casement windows',
     ],
-    img: '/assets/images/aluminium/alu_1.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>,
+    img: '/jkr/assets/images/aluminium/alu_1.jpg',
     reelImages: [
-      '/assets/images/aluminium/alu_1.jpg',
-      '/assets/images/aluminium/alu_2.jpg',
-      '/assets/images/aluminium/alu_3.jpg',
-      '/assets/images/aluminium/alu_4.jpg',
-      '/assets/images/aluminium/alu_5.jpg',
-      '/assets/images/aluminium/alu_6.jpg',
+      '/jkr/assets/images/aluminium/alu_1.jpg',
+      '/jkr/assets/images/aluminium/alu_2.jpg',
+      '/jkr/assets/images/aluminium/alu_3.jpg',
+      '/jkr/assets/images/aluminium/alu_4.jpg',
+      '/jkr/assets/images/aluminium/alu_5.jpg',
+      '/jkr/assets/images/aluminium/alu_6.jpg',
     ],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
   },
@@ -169,12 +173,13 @@ const DIVISIONS = [
       'Metal / GI laser cuts',
       'Facade designs',
     ],
-    img: '/assets/images/laser-cutting/laser_1.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v3M12 19v3M5 12H2M22 12h-3M16.95 7.05l2.12-2.12M4.93 19.07l2.12-2.12M16.95 16.95l2.12 2.12M4.93 4.93l2.12 2.12"/></svg>,
+    img: '/jkr/assets/images/laser-cutting/laser_1.jpg',
     reelImages: [
-      '/assets/images/laser-cutting/laser_1.jpg',
-      '/assets/images/laser-cutting/laser_2.jpg',
-      '/assets/images/laser-cutting/laser_3.jpg',
-      '/assets/images/laser-cutting/laser_4.jpg',
+      '/jkr/assets/images/laser-cutting/laser_1.jpg',
+      '/jkr/assets/images/laser-cutting/laser_2.jpg',
+      '/jkr/assets/images/laser-cutting/laser_3.jpg',
+      '/jkr/assets/images/laser-cutting/laser_4.jpg',
     ],
     gradient: 'linear-gradient(135deg, #1a0a1a 0%, #201020 100%)',
   },
@@ -189,12 +194,13 @@ const DIVISIONS = [
       'Metal furniture',
       'Commercial racks',
     ],
-    img: '/assets/images/sheet-metal/661ca50b7575d115452ff0ecf40804bc.jpg',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
+    img: '/jkr/assets/images/sheet-metal/661ca50b7575d115452ff0ecf40804bc.jpg',
     reelImages: [
-      '/assets/images/sheet-metal/661ca50b7575d115452ff0ecf40804bc.jpg',
-      '/assets/images/sheet-metal/6b176463df8ee3aa2aaa7491ccc193aa.jpg',
-      '/assets/images/sheet-metal/PDB-Power-Distribution-Board-Use~3.jpg',
-      '/assets/images/sheet-metal/e-b-metering-panel-with-star-delta~2.jpg',
+      '/jkr/assets/images/sheet-metal/661ca50b7575d115452ff0ecf40804bc.jpg',
+      '/jkr/assets/images/sheet-metal/6b176463df8ee3aa2aaa7491ccc193aa.jpg',
+      '/jkr/assets/images/sheet-metal/PDB-Power-Distribution-Board-Use~3.jpg',
+      '/jkr/assets/images/sheet-metal/e-b-metering-panel-with-star-delta~2.jpg',
     ],
     gradient: 'linear-gradient(135deg, #0a0a1a 0%, #101028 100%)',
   },
@@ -209,12 +215,13 @@ const DIVISIONS = [
       'Aerator systems',
       'SS pipes & accessories',
     ],
-    img: '/assets/images/trader/stainless-steel-pipe-316.webp',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+    img: '/jkr/assets/images/trader/stainless-steel-pipe-316.webp',
     reelImages: [
-      '/assets/images/trader/AFN-100-Auto-Feeder-with-HDPE-Floater-for-Nursery.jpg',
-      '/assets/images/trader/He16fe82293b34d769e3cd5b51e16342eA~3.jpg',
-      '/assets/images/trader/Paddle-Wheel-Aerator-Floating-Fish-Pond-Shrimp-Farming-Machine-Aerator-for-Aquaculture~2.jpg',
-      '/assets/images/trader/stainless-steel-pipe-316.webp',
+      '/jkr/assets/images/trader/AFN-100-Auto-Feeder-with-HDPE-Floater-for-Nursery.jpg',
+      '/jkr/assets/images/trader/He16fe82293b34d769e3cd5b51e16342eA~3.jpg',
+      '/jkr/assets/images/trader/Paddle-Wheel-Aerator-Floating-Fish-Pond-Shrimp-Farming-Machine-Aerator-for-Aquaculture~2.jpg',
+      '/jkr/assets/images/trader/stainless-steel-pipe-316.webp',
     ],
     gradient: 'linear-gradient(135deg, #181a1c 0%, #22262a 100%)',
   },
@@ -225,10 +232,10 @@ export default function ProductPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const BG_IMAGES = [
-    '/assets/demob1/1.jpeg',
-    '/assets/demob1/2.jpeg',
-    '/assets/demob1/3.jpeg',
-    '/assets/demob1/4.jpeg',
+    '/jkr/assets/demob1/1.jpeg',
+    '/jkr/assets/demob1/2.jpeg',
+    '/jkr/assets/demob1/3.jpeg',
+    '/jkr/assets/demob1/4.jpeg',
   ];
 
   useEffect(() => {
@@ -358,18 +365,19 @@ export default function ProductPage() {
       });
 
       const tabs = pageRef.current?.querySelectorAll('.product-nav-item');
-      tabs?.forEach((tab, i) => {
-        gsap.fromTo(tab,
-          { y: 20, opacity: 0 },
+      if (tabs) {
+        gsap.fromTo(tabs,
+          { x: -30, opacity: 0 },
           {
-            y: 0,
+            x: 0,
             opacity: 1,
-            duration: 0.5,
-            ease: 'power2.out',
-            delay: 0.3 + i * 0.08,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power3.out',
+            delay: 0.3,
           }
         );
-      });
+      }
 
       DIVISIONS.forEach((div, i) => {
         ScrollTrigger.create({
@@ -413,7 +421,12 @@ export default function ProductPage() {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navbarHeight = 120; // Correct offset for sticky navs
+      const targetPos = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      window.scrollTo({
+        top: targetPos,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -445,7 +458,7 @@ export default function ProductPage() {
 
         <div className="product-hero-content">
           <div className="ourwork-breadcrumb">
-            <Link to="/">Home</Link>
+            <Link to="/jkr/">Home</Link>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
@@ -456,6 +469,42 @@ export default function ProductPage() {
             Seven specialized divisions, one commitment to excellence — explore our comprehensive range of industrial products and services.
           </p>
           <div className="product-hero-divider" />
+          
+          <nav className="product-nav">
+            <span className="product-nav-tag">Our Product Segments</span>
+            <div className="product-nav-row product-nav-row--top">
+              {DIVISIONS.slice(0, 4).map((div) => (
+                <button
+                  key={div.id}
+                  className="product-nav-item"
+                  onClick={() => scrollToSection(div.id)}
+                >
+                  <div className="product-nav-card-glow" />
+                  <div className="product-nav-icon">{div.icon}</div>
+                  <div className="product-nav-info">
+                    <span className="product-nav-num">{div.num}</span>
+                    <span className="product-nav-label">{div.title}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+            <div className="product-nav-row product-nav-row--bottom">
+              {DIVISIONS.slice(4, 7).map((div) => (
+                <button
+                  key={div.id}
+                  className="product-nav-item"
+                  onClick={() => scrollToSection(div.id)}
+                >
+                  <div className="product-nav-card-glow" />
+                  <div className="product-nav-icon">{div.icon}</div>
+                  <div className="product-nav-info">
+                    <span className="product-nav-num">{div.num}</span>
+                    <span className="product-nav-label">{div.title}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </nav>
         </div>
 
         <div className="product-hero-scroll">
@@ -464,20 +513,6 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <nav className="product-nav">
-        <div className="product-nav-track">
-          {DIVISIONS.map((div) => (
-            <button
-              key={div.id}
-              className="product-nav-item"
-              onClick={() => scrollToSection(div.id)}
-            >
-              <span className="product-nav-num">{div.num}</span>
-              <span className="product-nav-label">{div.title}</span>
-            </button>
-          ))}
-        </div>
-      </nav>
 
       {DIVISIONS.map((div, idx) => (
         <section
@@ -514,7 +549,7 @@ export default function ProductPage() {
                   ))}
                 </ul>
               </div>
-              <Link to="/#contact" className="product-division-cta">
+              <Link to="/jkr/#contact" className="product-division-cta">
                 Get a Quote
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
@@ -532,7 +567,7 @@ export default function ProductPage() {
           <p className="product-cta-desc">
             Our divisions work together to deliver integrated industrial solutions tailored to your exact requirements.
           </p>
-          <Link to="/#contact" className="product-cta-btn">
+          <Link to="/jkr/#contact" className="product-cta-btn">
             Contact Us Today
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
