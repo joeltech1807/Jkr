@@ -45,6 +45,10 @@ export default function Footer() {
             <a href="tel:9842466030">📞 98424 66030</a>
             <a href="https://wa.me/918838615904">💬 88386 15904</a>
             <a href="mailto:Jkrindustries.in@gmail.com">✉️ Jkrindustries.in@gmail.com</a>
+            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginTop: '8px', lineHeight: '1.5' }}>
+              📍 QR5R+3JQ, Keraikoai Theru,<br />
+              Nagapattinam, Tamil Nadu 611001
+            </p>
           </div>
         </div>
       </div>
