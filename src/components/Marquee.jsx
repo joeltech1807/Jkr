@@ -1,7 +1,7 @@
 const ITEMS = [
   'LASER CUTTING', 'FABRICATION', 'POWDER COATING', 'UPVC',
   'ALUMINIUM', 'SHEET METAL', 'FACADE DESIGN', 'TRADING',
-  'GI DOORS', 'WINDOWS',
+  'GI STEEL DOORS', 'WINDOWS',
 ];
 
 export default function Marquee() {

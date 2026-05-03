@@ -21,8 +21,8 @@ const HERO_DATA = [
 
 const CARDS = [
   { img: '/assets/images/lasercut.jpeg', label: 'Laser Cutting' },
-  { img: '/assets/images/sheetm.png', label: 'Sheet Metal' },
-  { img: '/assets/images/giser.jpeg', label: 'Doors & Windows' },
+  { img: '/assets/images/sheetmetalhero.jpeg', label: 'Sheet Metal' },
+  { img: '/assets/images/giser.jpeg', label: 'Doors and windows' },
   { img: '/assets/images/traderser.jpeg', label: 'JKR Trader' },
 ];
 

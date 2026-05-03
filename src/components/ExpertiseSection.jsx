@@ -22,10 +22,10 @@ const SERVICES = [
   },
   {
     num: '03',
-    title: 'GI Doors & Windows',
+    title: 'GI Steel Doors & Windows',
     desc: 'Robust Galvanized Iron doors and windows designed for industrial-grade security, fire resistance, and exceptional longevity.',
     img: '/assets/images/giser.jpeg',
-    link: '/products#gi-doors-windows',
+    link: '/products#gi-steel-doors-windows',
   },
   {
     num: '04',

@@ -200,9 +200,9 @@ const DIVISIONS = [
     gradient: 'linear-gradient(135deg, #0a1a1a 0%, #102020 100%)',
   },
   {
-    id: 'gi-doors-windows',
+    id: 'gi-steel-doors-windows',
     num: '03',
-    title: 'GI Doors & Windows',
+    title: 'GI Steel Doors & Windows',
     tagline: 'Industrial Strength Security',
     desc: 'Robust Galvanized Iron (GI) door and window systems designed for maximum security and durability in industrial and commercial environments.',
     offerings: [

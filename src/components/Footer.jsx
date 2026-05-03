@@ -34,7 +34,7 @@ export default function Footer() {
             <h4>Our Services</h4>
             <Link to="/products#jkr-industries">JKR Industries</Link>
             <Link to="/products#upvc-doors-windows">UPVC Doors & Windows</Link>
-            <Link to="/products#gi-doors-windows">GI Doors & Windows</Link>
+            <Link to="/products#gi-steel-doors-windows">GI Steel Doors & Windows</Link>
             <Link to="/products#aluminium-doors-windows">System Aluminium</Link>
             <Link to="/products#jkr-laser-cutting">Laser Cutting & Facades</Link>
             <Link to="/products#jkr-sheet-metal">Sheet Metal & Coating</Link>
