@@ -1668,29 +1668,29 @@ button {
   }
 
   .hero-subtitle {
-    font-size: 0.82rem !important;
-    letter-spacing: 2px !important;
-    margin-bottom: 24px !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 2.5px !important;
+    margin-bottom: 28px !important;
   }
 
   .hero-title {
-    font-size: 3.2rem !important;
+    font-size: 3.8rem !important;
     line-height: 1 !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1.5px !important;
   }
 
   .hero-micro-subtext {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-    margin-top: 16px !important;
-    max-width: 300px !important;
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+    margin-top: 20px !important;
+    max-width: 320px !important;
     margin-left: auto;
     margin-right: auto;
   }
 
   .hero-tagline {
-    font-size: 1.1rem !important;
-    margin-top: 40px !important;
+    font-size: 1.3rem !important;
+    margin-top: 50px !important;
     letter-spacing: 1px !important;
   }
 
@@ -1757,12 +1757,12 @@ button {
   }
 
   .hero-title-wrapper {
-    height: 125px !important;
-    margin-bottom: 30px !important;
+    height: 155px !important;
+    margin-bottom: 40px !important;
   }
 
   .hero-progress-container {
-    margin: 24px auto !important;
+    margin: 30px auto !important;
   }
 
   /* Expertise */
@@ -1848,25 +1848,25 @@ button {
 /* 📲 Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-subtitle {
-    font-size: 0.8rem !important;
-    letter-spacing: 1.5px !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 2px !important;
   }
 
   .hero-title {
-    font-size: 2.8rem !important;
+    font-size: 3.2rem !important;
   }
 
   .hero-micro-subtext {
-    font-size: 0.9rem !important;
-    max-width: 260px !important;
+    font-size: 1rem !important;
+    max-width: 280px !important;
   }
 
   .hero-title-wrapper {
-    height: 110px !important;
+    height: 130px !important;
   }
 
   .hero-tagline {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
 
   .section-title {
