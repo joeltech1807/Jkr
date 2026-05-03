@@ -63,10 +63,9 @@ export default function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/jkr" element={<HomePage />} />
-          <Route path="/jkr/" element={<HomePage />} />
-          <Route path="/jkr/our-work" element={<OurWorkPage />} />
-          <Route path="/jkr/products" element={<ProductPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-work" element={<OurWorkPage />} />
+          <Route path="/products" element={<ProductPage />} />
           {/* Fallback to home */}
           <Route path="*" element={<HomePage />} />
         </Routes>

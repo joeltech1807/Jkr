@@ -693,8 +693,8 @@ button {
   position: absolute;
   inset: -20px; /* offset for blur breakout */
   background: 
-    url('/jkr/assets/images/heroback.jpeg') center/cover no-repeat fixed,
-    url('/jkr/assets/images/heroback2.jpeg') center/cover no-repeat fixed;
+    url('/assets/images/heroback.jpeg') center/cover no-repeat fixed,
+    url('/assets/images/heroback2.jpeg') center/cover no-repeat fixed;
   background-blend-mode: overlay;
   filter: blur(2px);
   z-index: -3;

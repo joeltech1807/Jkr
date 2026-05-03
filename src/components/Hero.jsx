@@ -20,10 +20,10 @@ const HERO_DATA = [
 ];
 
 const CARDS = [
-  { img: '/jkr/assets/images/lasercut.jpeg', label: 'Laser Cutting' },
-  { img: '/jkr/assets/images/sheetm.png', label: 'Sheet Metal' },
-  { img: '/jkr/assets/images/giser.jpeg', label: 'Doors & Windows' },
-  { img: '/jkr/assets/images/traderser.jpeg', label: 'JKR Trader' },
+  { img: '/assets/images/lasercut.jpeg', label: 'Laser Cutting' },
+  { img: '/assets/images/sheetm.png', label: 'Sheet Metal' },
+  { img: '/assets/images/giser.jpeg', label: 'Doors & Windows' },
+  { img: '/assets/images/traderser.jpeg', label: 'JKR Trader' },
 ];
 
 export default function Hero() {
