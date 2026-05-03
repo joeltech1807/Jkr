@@ -86,7 +86,9 @@ export default function Navbar() {
 
     return (
       <nav className={`navbar ${theme}`} id="navbar">
-        <Link to="/#hero" className="nav-logo" onClick={handleLogoClick}>JKR INDUSTRIES</Link>
+        <Link to="/#hero" className="nav-logo" onClick={handleLogoClick}>
+          <img src="/assets/images/logo.jpeg" alt="JKR INDUSTRIES" className="nav-logo-img" />
+        </Link>
       <div className={`nav-links ${mobileOpen ? 'mobile-open' : ''}`}>
         <Link to="/#hero" className={(location.pathname === '/' || location.pathname === '') && !location.hash ? 'active' : ''} onClick={handleLogoClick}>Home</Link>
         <Link to="/#about-section" className={location.hash === '#about-section' ? 'active' : ''}>About Us</Link>
